@@ -11,18 +11,22 @@
 </template>
 <script>
 export default {
-  data: function () {
-    return {
-      title: "",
-    };
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    listIndex: {
+      type: Number,
+      required: true
+    }
   },
   methods: {
-    addList: function () {
-      this.$store.dispatch("addlist", {
-        title: this.title,
-      });
-      this.title = "";
+    removeList: function() {
+      if(confirm('本当にこのリストを削除しますか？')){
+        this.$store.dispatch('removelist', { listIndex: this.listIndex })
+      }
     },
-  },
-};
+  }
+}
 </script>
