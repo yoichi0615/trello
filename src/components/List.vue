@@ -10,19 +10,19 @@
 <script>
 export default {
   props: {
-    title:{
-      type:String,
-      required:true
+    title: {
+      type: String,
+      required: true
     },
     listIndex: {
-      type:Number,
-      required:true
+      type: Number,
+      required: true
     }
   },
   methods: {
-    removeList:function() {
+    removeList: function() {
       if(confirm('本当にこのリストを削除しますか？')) {
-        this.$store.dispathch('removelist', {listIndex:this.listIndex})
+        this.$store.dispatch('removelist', { listIndex: this.listIndex })
       }
     },
   }
